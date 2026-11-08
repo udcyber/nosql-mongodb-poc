@@ -1,5 +1,5 @@
 // POC MongoDB — Document Database
-// Projet PLD NoSQL — BuyBye / RNCP 5
+// Projet NoSQL pour le dossier professionnel RNCP 5
 // Démarrage : docker run -d -p 27017:27017 --name mongodb mongo:7
 
 const { MongoClient } = require('mongodb');
@@ -15,7 +15,7 @@ async function run() {
     const db = client.db('buybye_logs');
     const collection = db.collection('user_activities');
 
-    // 1. INSERT — Création d'un document
+    // 1. INSERT
     const activity = {
       userId: 'user_123',
       action: 'login',
@@ -31,11 +31,11 @@ async function run() {
     const insertResult = await collection.insertOne(activity);
     console.log('Document inséré :', insertResult.insertedId);
 
-    // 2. FIND — Lecture
+    // 2. FIND
     const found = await collection.findOne({ userId: 'user_123' });
     console.log('Document trouvé :', found);
 
-    // 3. UPDATE — Mise à jour
+    // 3. UPDATE
     await collection.updateOne(
       { _id: insertResult.insertedId },
       { $set: { 'metadata.success': false, note: 'Tentative échouée' } }

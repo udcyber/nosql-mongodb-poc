@@ -1,16 +1,14 @@
 {
-  "name": "mongodb",
+  "name": "nosql-mongodb-poc",
   "version": "1.0.0",
-  "description": "",
+  "description": "POC MongoDB - Document Database for RNCP 5 dossier professionnel",
   "main": "mongodb_poc.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node mongodb_poc.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "mongodb": "^7.8.0"
-  }
+    "mongodb": "^6.0.0"
+  },
+  "author": "Ulysse",
+  "license": "MIT"
 }
